@@ -1,0 +1,16 @@
+@startuml
+actor User
+boundary QuizInterface
+control QuizController
+entity QuizDatabase
+
+User --> (QuizInterface) : 1. Start quiz
+(QuizInterface) --> (QuizController) : 2. Request quiz questions
+(QuizController) --> (QuizDatabase) : 3. Retrieve quiz questions
+(QuizController) --> (QuizInterface) : 4. Display quiz questions
+User <-- (QuizInterface) : 5. Answer quiz questions
+(QuizInterface) --> (QuizController) : 6. Submit answers
+(QuizController) --> (QuizDatabase) : 7. Validate answers
+(QuizDatabase) --> (QuizController) : 8. Return results
+(QuizController) --> (QuizInterface) : 9. Display results
+@enduml
