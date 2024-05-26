@@ -1,0 +1,27 @@
+@startuml
+title Sequence Diagram - Quiz System
+
+actor User
+actor Tutor
+actor Examinator
+
+User -> Tutor: Request to create quiz
+activate Tutor
+Tutor -> Quiz: Create quiz
+activate Quiz
+Tutor -> Quiz: Add questions
+Quiz -> Tutor: Confirmation
+Tutor -> Examinator: Request to grade quiz
+activate Examinator
+Examinator -> Quiz: Grade quiz
+Quiz -> Examinator: Quiz result
+deactivate Examinator
+Examinator -> Tutor: Result
+deactivate Tutor
+User -> Quiz: Take quiz
+activate User
+Quiz -> User: Quiz questions
+User -> Quiz: Submit answers
+Quiz -> User: Quiz result
+deactivate User
+@enduml
