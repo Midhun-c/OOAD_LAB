@@ -1,0 +1,20 @@
+@startuml
+title Activity Diagram - Quiz System
+
+(*) --> "User selects category"
+
+if "Administrator?" then
+  -->[yes] "Administrator logs in"
+  --> "Administrator prepares quiz"
+  --> "Administrator sets questions"
+  --> "Quiz is ready"
+  --> "User selects category"
+else
+  --> "User takes quiz"
+  --> "Quiz questions are displayed"
+  --> "User answers questions"
+  --> "Score is calculated"
+  --> "Score is displayed"
+  --> (*)
+endif
+@enduml
