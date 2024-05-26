@@ -1,0 +1,41 @@
+@startuml
+title Class Diagram - Quiz System
+
+class User {
+    +username: string
+    +password: string
+    +login(): bool
+    +logout(): void
+    +takeQuiz(Quiz): void
+}
+
+class Quiz {
+    +questions: Question[]
+    +addQuestion(Question): void
+    +removeQuestion(Question): void
+    +gradeQuiz(): int
+}
+
+class Question {
+    -text: string
+    -answer: string
+    +getText(): string
+    +getAnswer(): string
+    +setText(string): void
+    +setAnswer(string): void
+}
+
+class Tutor {
+    +certifyQuestions(Quiz): void
+}
+
+class Examinator {
+    +gradeQuiz(Quiz): int
+}
+
+User -- Quiz: takes part in >
+Tutor -- Quiz: creates >
+Examinator -- Quiz: grades >
+Quiz *- Question: contains >
+
+@enduml
